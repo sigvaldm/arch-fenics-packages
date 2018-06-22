@@ -12,3 +12,8 @@
 	path = mumps-par
 	url = https://aur.archlinux.org/mumps-par.git
 	ignore = untracked
+
+[submodule "petsc"]
+	path = petsc
+	url = https://aur.archlinux.org/petsc.git
+	ignore = untracked
