@@ -7,3 +7,8 @@
 	path = scalapack
 	url = https://aur.archlinux.org/scalapack.git
 	ignore = untracked
+
+[submodule "mumps-par"]
+	path = mumps-par
+	url = https://aur.archlinux.org/mumps-par.git
+	ignore = untracked
