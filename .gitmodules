@@ -17,3 +17,8 @@
 	path = petsc
 	url = https://aur.archlinux.org/petsc.git
 	ignore = untracked
+
+[submodule "slepc"]
+	path = slepc
+	url = https://aur.archlinux.org/slepc.git
+	ignore = untracked
