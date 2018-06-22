@@ -2,3 +2,8 @@
 	path = superlu
 	url = https://aur.archlinux.org/superlu.git
 	ignore = untracked
+
+[submodule "scalapack"]
+	path = scalapack
+	url = https://aur.archlinux.org/scalapack.git
+	ignore = untracked
