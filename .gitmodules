@@ -22,3 +22,13 @@
 	path = slepc
 	url = https://aur.archlinux.org/slepc.git
 	ignore = untracked
+
+[submodule "petsc4py"]
+	path = petsc4py
+	url = https://aur.archlinux.org/petsc4py
+	ignore = untracked
+
+[submodule "slepc4py"]
+	path = slepc4py
+	url = https://aur.archlinux.org/slepc4py
+	ignore = untracked
