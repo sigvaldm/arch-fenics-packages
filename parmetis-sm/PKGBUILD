@@ -4,6 +4,10 @@
 # Original contributor: George Eleftheriou <eleftg>
 # Original contributor: Jed Brown <jed@59A2.org>
 
+# Differences compared to original:
+# - The METIS in the official Arch repository is in conflict with the latest
+#   version of ParMETIS. ParMETIS comes bundled with a matching version of
+#   METIS so it makes sense to use this instead.
 
 pkgname=parmetis-sm
 pkgver=4.0.3
