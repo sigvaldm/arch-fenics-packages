@@ -1,0 +1,3 @@
+[submodule "superlu"]
+	path = superlu
+	url = https://aur.archlinux.org/superlu.git
