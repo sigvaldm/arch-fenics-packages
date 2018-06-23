@@ -1,3 +1,5 @@
+# "ignore = untracked" on packages I do not manage
+
 [submodule "superlu"]
 	path = superlu
 	url = https://aur.archlinux.org/superlu.git
@@ -26,9 +28,39 @@
 [submodule "petsc4py"]
 	path = petsc4py
 	url = https://aur.archlinux.org/petsc4py
-	ignore = untracked
 
 [submodule "slepc4py"]
 	path = slepc4py
 	url = https://aur.archlinux.org/slepc4py
-	ignore = untracked
+
+[submodule "python-ffc"]
+	path = python-ffc
+	url = https://aur.archlinux.org/python-ffc.git
+
+[submodule "python-ufl"]
+	path = python-ufl
+	url = https://aur.archlinux.org/python-ufl.git
+
+[submodule "python-dijitso"]
+	path = python-dijitso
+	url = https://aur.archlinux.org/python-dijitso.git
+
+[submodule "python-fiat"]
+	path = python-fiat
+	url = https://aur.archlinux.org/python-fiat.git
+
+[submodule "dolfin"]
+	path = dolfin
+	url = https://aur.archlinux.org/dolfin.git
+
+[submodule "python-dolfin"]
+	path = python-dolfin
+	url = https://aur.archlinux.org/python-dolfin.git
+
+[submodule "python-mshr"]
+	path = python-mshr
+	url = https://aur.archlinux.org/python-mshr.git
+
+[submodule "mshr"]
+	path = mshr
+	url = https://aur.archlinux.org/mshr.git
