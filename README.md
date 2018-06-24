@@ -25,7 +25,7 @@ Next, clone this repository, including all the git submodules:
 ```
 git clone --recurse-submodules https://github.com/sigvaldm/arch-fenics.packages.git
 ```
-if you omit `--recurse-submodules` most folders will be empty.
+If you omit `--recurse-submodules` most folders will be empty.
 
 Then, install the packages in the following order (this order takes into account dependencies):
 
