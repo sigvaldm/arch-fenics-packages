@@ -1,0 +1,75 @@
+# Maintainer: Sigvald Marholm <marholm@marebakken.com>
+
+# Adapted from the official Arch package.
+# Original contributor: Felix Yan <felixonmars@archlinux.org>
+# Original contributor: Stéphane Gaudreault <stephane@archlinux.org>
+# Original contributor: Thomas Dziedzic < gostrc at gmail >
+# Original contributor: Angel 'angvp' Velasquez <angvp[at]archlinux.com.ve>  
+# Original contributor: Peter Garceau <RockyChimp@gmail.com>
+
+# Differences compared to original:
+# - Version 1.1.1 instead of 1.2
+# - Testing ignored (very time consuming)
+
+pkgbase=python-sympy-sm
+pkgname=('python-sympy-sm' 'python2-sympy-sm')
+pkgver=1.1.1
+pkgrel=1
+arch=('any')
+pkgdesc='Symbolic manipulation package (Computer Algebra System), written in pure Python'
+url='http://sympy.org/en/index.html'
+license=('BSD')
+makedepends=('python2-mpmath' 'python-mpmath' 'python-setuptools' 'python2-setuptools')
+source=("$pkgbase-$pkgver.tar.gz::https://github.com/sympy/sympy/archive/sympy-$pkgver.tar.gz")
+sha512sums=('c571a5c6fd0abb59e60baec0f9c7b909ec2d133db52353c58288f7477ac2bc905219b308122761e41509d4bbdfc145375bdc6f76f608eb557e44163bb37b111a')
+
+prepare() {
+  cp -a sympy-sympy-$pkgver{,-py2}
+}
+
+build() {
+  cd "$srcdir"/sympy-sympy-$pkgver
+  python setup.py build
+
+  cd "$srcdir"/sympy-sympy-$pkgver-py2
+  python2 setup.py build
+}
+
+# check() {
+#   cd "$srcdir"/sympy-sympy-$pkgver
+#   python setup.py test
+
+#   cd "$srcdir"/sympy-sympy-$pkgver-py2
+#   python2 setup.py test
+# }
+
+package_python-sympy-sm() {
+  depends=('python-mpmath')
+  optdepends=('ipython: user friendly interface for isympy')
+  provides=('python-sympy')
+  conflicts=('python-sympy')
+
+  cd sympy-sympy-$pkgver
+
+  python setup.py install --root "$pkgdir" --optimize=1
+
+  install -D -m644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+}
+
+package_python2-sympy-sm() {
+  depends=('python2-mpmath')
+  optdepends=('python2-pyglet: plotting'
+              'ipython2: user friendly interface for isympy')
+  provides=('python2-sympy')
+  conflicts=('python2-sympy')
+
+  cd sympy-sympy-$pkgver-py2
+
+  python2 setup.py install --root "$pkgdir" --optimize=1
+
+  # rename files that exists in both 'python-sympy-sm' and 'python2-sympy-sm'
+  mv "$pkgdir"/usr/bin/isympy{,2}
+  mv "$pkgdir"/usr/share/man/man1/isympy{,2}.1
+
+  install -D -m644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+}
