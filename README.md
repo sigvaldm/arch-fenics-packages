@@ -52,3 +52,5 @@ Then, install the packages in the following order (this order takes into account
 This is done by entering the respective directory in this repository and running `makepkg -sri`.
 
 I might try to make this less cumbersome in the future, but it should work for now.
+
+Note on Gmsh: the `dolfin-convert` command appears to have issues with `.msh` files generated using Gmsh 4. Use Gmsh 3.0.6 instead. The package `gmsh-bin` on AUR currently provides this. An alternative may be the package `gmsh` but reverting it back to 3.0.6.
