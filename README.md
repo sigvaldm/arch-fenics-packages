@@ -1,4 +1,4 @@
-# Stable FEniCS 2018.1 for Arch Linux with frozen dependencies
+# Stable FEniCS 2019.1.0.post0 for Arch Linux with frozen dependencies
 FEniCS and many of its numerous dependencies are under very active development by leading scientists in the field. Unfortunately, these tools often lack good practices for ensuring backwards compatibility (such as semantic versioning). This makes FEniCS break frequently, especially on a bleeding edge, rolling release system such as Arch Linux (though, on the whole, I must say that Arch Linux far supersedes its rumour in this respect. I usually only have problems with FEniCS).
 
 This is a repository of Arch Linux packages (PKGBUILDs) for FEniCS and its dependencies. Most of them are the same packages as the ones on the Arch User Repository (AUR). In fact, they are just clones (or git submodules), but they are frozen to a specific version to ensure that they work with FEniCS. Some packages on the AUR are broken, out-of-date, or somehow breaks FEniCS. For these packages I have made an alternative to the AUR packages with a suffix `-sm`.
@@ -15,6 +15,7 @@ sudo pacman -S \
     python-mpi4py \
     python-matplotlib \
     python-scipy \
+    python-sympy \
     hdf5-openmpi \
     fftw \
     valgrind \
@@ -39,7 +40,6 @@ Then, install the packages in the following order (this order takes into account
 - `slepc`
 - `petsc4py`
 - `slepc4py`
-- `python-sympy-sm`
 - `python-ufl`
 - `python-dijitso`
 - `python-fiat`

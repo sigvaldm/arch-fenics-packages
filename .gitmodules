@@ -64,3 +64,18 @@
 [submodule "mshr"]
 	path = mshr
 	url = https://aur.archlinux.org/mshr.git
+
+[submodule "hypre"]
+	path = hypre
+	url = https://aur.archlinux.org/hypre.git
+	ignore = untracked
+
+[submodule "scotch"]
+	path = scotch
+	url = https://aur.archlinux.org/scotch.git
+	ignore = untracked
+
+[submodule "parmetis"]
+	path = parmetis
+	url = https://aur.archlinux.org/parmetis.git
+	ignore = untracked
