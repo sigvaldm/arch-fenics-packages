@@ -3,45 +3,37 @@
 # Adapted from the parmetis AUR package.
 # Original contributor: George Eleftheriou <eleftg>
 # Original contributor: Jed Brown <jed@59A2.org>
-
-# Differences compared to original:
-# - The METIS in the official Arch repository is in conflict with the latest
-#   version of ParMETIS. ParMETIS comes bundled with a matching version of
-#   METIS so it makes sense to use this instead.
+#
+# Difference compared to original
+# - The original does not work due to a small bug in build()
 
 pkgname=parmetis-sm
-pkgver=4.0.3
-pkgrel=1
-_prefix=/usr
-pkgdesc="A graph partitioning library with parallel support (ParMETIS bundled with METIS)"
+pkgver=4.0.3.p6
+_pkgver=4.0.3-p6
+pkgrel=2
+pkgdesc="A parallel graph partitioning library"
 url="http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview"
-arch=('i686' 'x86_64')
-license=(custom)
-depends=(openmpi)
-makedepends=(cmake)
-conflicts=(metis parmetis)
-provides=(metis=5.1.0 parmetis=4.0.3)
-source=(http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-${pkgver}.tar.gz)
-sha256sums=('f2d9a231b7cf97f1fee6e8c9663113ebf6c240d407d3c118c55b3633d6be6e5f')
+arch=('x86_64')
+license=('custom')
+depends=('openmpi' 'metis')
+makedepends=('cmake')
+conflicts=(parmetis)
+provides=(parmetis=4.0.3)
+source=($pkgname-$pkgver.tar.gz::"https://bitbucket.org/petsc/pkg-parmetis/get/v${_pkgver}.tar.gz")
+sha256sums=('663a20f45066d94a2732e8f38742047e89cd2b159cec7b3c6a7d834ae59d8b1f')
+
+# "Upstream" is unmaintained and does not reply or apply to critical patches
+#source=(http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-$pkgver.tar.gz)
 
 build() {
-  # Build bundled METIS first
-  cd "$srcdir/parmetis-${pkgver}/metis"
-  make config cc=${_prefix}/bin/mpicc mpicc=${_prefix}/bin/mpicc mpicxx=${_prefix}/bin/mpicxx shared=1 prefix=${_prefix}
-  make
-
-  # Then build ParMETIS
-  cd ..
-  make config cc=${_prefix}/bin/mpicc mpicc=${_prefix}/bin/mpicc mpicxx=${_prefix}/bin/mpicxx shared=1 prefix=${_prefix}
+  cd "$srcdir"
+  mv petsc-pkg-parmetis-* $pkgname-$pkgver
+  cd "$pkgname-$pkgver"
+  make config cc=mpicc mpicc=mpicc mpicxx=mpicxx shared=1 prefix=/usr
   make
 }
 
 package () {
-  # Install bundled METIS first
-  cd "$srcdir/parmetis-${pkgver}/metis/"
-  make install "DESTDIR=$pkgdir"
-
-  # Then install ParMETIS
-  cd ..
+  cd "$srcdir/$pkgname-$pkgver"
   make install "DESTDIR=$pkgdir"
 }

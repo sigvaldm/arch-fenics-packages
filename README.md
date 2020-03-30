@@ -33,7 +33,7 @@ Then, install the packages in the following order (this order takes into account
 - `superlu`
 - `scalapack`
 - `scotch-sm`
-- `hypre-sm`
+- `hypre`
 - `mumps-par`
 - `petsc`
 - `slepc`
@@ -61,3 +61,23 @@ To provide `.msh` files with Gmsh 4 that can be parsed by `dolfin-convert`, you 
 ```
 gmsh -format msh2 <input_file>.geo
 ```
+
+## Installing PETSc/SLEPc with Python interfaces and complex scalars
+
+As a spin-off of the above, I also present a configuration for PETSc, SLEPc,
+petsc4py and slepc4py with support for complex scalars and all optional PETSc
+dependencies except Pastix and Trilinos (in particular, I needed SuperLU_dist).
+Install in a similar way to the above, but with this list instead.
+
+- `parmetis-sm`
+- `superlu`
+- `combblas`
+- `superlu_dist`
+- `scalapack`
+- `scotch-sm`
+- `hypre`
+- `mumps-par`
+- `petsc`
+- `slepc`
+- `petsc4py`
+- `slepc4py`

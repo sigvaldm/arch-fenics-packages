@@ -5,9 +5,24 @@
 	url = https://aur.archlinux.org/superlu.git
 	ignore = untracked
 
+[submodule "combblas"]
+	path = combblas
+	url = https://aur.archlinux.org/combblas.git
+	ignore = untracked
+
+[submodule "superlu_dist"]
+	path = superlu_dist
+	url = https://aur.archlinux.org/superlu_dist.git
+	ignore = untracked
+
 [submodule "scalapack"]
 	path = scalapack
 	url = https://aur.archlinux.org/scalapack.git
+	ignore = untracked
+
+[submodule "hypre"]
+	path = hypre
+	url = https://aur.archlinux.org/hypre.git
 	ignore = untracked
 
 [submodule "mumps-par"]
@@ -19,6 +34,10 @@
 	path = petsc
 	url = https://aur.archlinux.org/petsc.git
 	ignore = untracked
+
+[submodule "petsc-complex"]
+	path = petsc-complex
+	url = https://aur.archlinux.org/petsc-complex.git
 
 [submodule "slepc"]
 	path = slepc
